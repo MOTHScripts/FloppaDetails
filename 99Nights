@@ -3,13 +3,6 @@ local KEY = "D94jaldHGkenelhnSOOOEUmfogrlejOSNHI1257__,3KS"
 -- Services
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-
--- Clean old UI
-pcall(function()
-    player.PlayerGui:FindFirstChild("FlowthicHub"):Destroy()
-end)
-
-local function startScript()
   local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
   local Window = Rayfield:CreateWindow({
@@ -74,6 +67,13 @@ local TeleportToChild2 = Main:CreateButton({
     })
    end,
 })
+-- Clean old UI
+pcall(function()
+    player.PlayerGui:FindFirstChild("FlowthicHub"):Destroy()
+end)
+ Rayfield:SetVisibility(false)
+local function startScript()
+    Rayfield:SetVisibility(true)
 end
 -- ScreenGui
 local gui = Instance.new("ScreenGui")
