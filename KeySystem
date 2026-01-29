@@ -1,5 +1,3 @@
 if game.PlaceId == 126509999114328 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/MOTHScripts/FloppaDetails/refs/heads/main/99Nights"))()
-else
-    warn("Current supported games are: 99 Nights In The Forest. Please try again in the supported games written in here.")
 end
