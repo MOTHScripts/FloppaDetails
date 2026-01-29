@@ -51,7 +51,7 @@ local function startScript()
 })
 local Main = Window:CreateTab("Main", 4483362458) -- Title, Image
 
-local TeleportToChild1 = Main:CreateButton({
+Main:CreateButton({
    Name = "Teleport To Kid 1",
    Callback = function()
    player.Character.HumanoidRootPart.CFrame = game.Workspace.Characters["Lost Child"].HumanoidRootPart.CFrame
@@ -63,7 +63,7 @@ local TeleportToChild1 = Main:CreateButton({
     })
    end,
 })
-local TeleportToChild2 = Main:CreateButton({
+Main:CreateButton({
    Name = "Teleport To Kid 2",
    Callback = function()
    player.Character.HumanoidRootPart.CFrame = game.Workspace.Characters["Lost Child2"].HumanoidRootPart.CFrame
