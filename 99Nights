@@ -1,0 +1,219 @@
+local KEY = "D94jaldHGkenelhnSOOOEUmfogrlejOSNHI1257__,3KS"
+
+-- Services
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Clean old UI
+pcall(function()
+    player.PlayerGui:FindFirstChild("FlowthicHub"):Destroy()
+end)
+
+local function startScript()
+  local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+  local Window = Rayfield:CreateWindow({
+   Name = "Flowthic Hub | 99 Nights In The Forest",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "Loading Flowthic Hub..",
+   LoadingSubtitle = "by Floppa and MOTH",
+   ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = true, -- Create a custom folder for your hub/game
+      FileName = "FlowthicHub"
+   },
+
+   Discord = {
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "jkFU9ZBF", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/kbGjWx0L"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Main = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+local TeleportToChild1 = Main:CreateButton({
+   Name = "Teleport To Kid 1",
+   Callback = function()
+   player.Character.HumanoidRootPart.CFrame = game.Workspace.Characters["Lost Child"].HumanoidRootPart.CFrame
+    Rayfield:Notify({
+       Title = "Teleporting..",
+       Content = "Teleporting to kid 1.",
+       Duration = 6.5,
+       Image = 4483362458,
+    })
+   end,
+})
+local TeleportToChild2 = Main:CreateButton({
+   Name = "Teleport To Kid 2",
+   Callback = function()
+   player.Character.HumanoidRootPart.CFrame = game.Workspace.Characters["Lost Child2"].HumanoidRootPart.CFrame
+    Rayfield:Notify({
+       Title = "Teleporting..",
+       Content = "Teleporting to kid 2.",
+       Duration = 6.5,
+       Image = 4483362458,
+    })
+   end,
+})
+end
+-- ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "FlowthicHub"
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+gui.Parent = player.PlayerGui
+
+-- Main Panel
+-- Main Panel
+local main = Instance.new("Frame")
+main.Parent = gui
+main.Size = UDim2.new(0, 387, 0, 303)
+main.Position = UDim2.fromScale(0.5, 0.5) - UDim2.fromOffset(193.5, 151.5)
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main.BorderSizePixel = 0
+main.ClipsDescendants = true
+main.Active = true
+main.Draggable = true
+
+Instance.new("UICorner", main).CornerRadius = UDim.new(0, 20)
+
+-- Brown diagonal gradient
+local uiGradient = Instance.new("UIGradient")
+uiGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(10, 12, 13)),
+     ColorSequenceKeypoint.new(0.2, Color3.fromRGB(10, 12, 13)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(150, 65, 50))
+}
+uiGradient.Rotation = 135
+uiGradient.Parent = main
+
+
+
+
+
+-- Title
+local title = Instance.new("TextLabel")
+title.Parent = main
+title.BackgroundTransparency = 1
+title.Position = UDim2.fromScale(0.05, 0.05)
+title.Size = UDim2.fromScale(0.9, 0.12)
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Text = "Flowthic Hub"
+title.Font = Enum.Font.GothamBold
+title.TextColor3 = Color3.new(1,1,1)
+title.TextScaled = true
+
+-- Subtitle
+local subtitle = Instance.new("TextLabel")
+subtitle.Parent = main
+subtitle.BackgroundTransparency = 1
+subtitle.Position = UDim2.fromScale(0.05, 0.16)
+subtitle.Size = UDim2.fromScale(0.9, 0.07)
+subtitle.TextXAlignment = Enum.TextXAlignment.Left
+subtitle.Text = "Enter a key.."
+subtitle.Font = Enum.Font.Gotham
+subtitle.TextColor3 = Color3.fromRGB(170,170,170)
+subtitle.TextScaled = true
+
+-- Key Box
+local keyBox = Instance.new("TextBox")
+keyBox.Parent = main
+keyBox.Position = UDim2.fromScale(0.05, 0.30)
+keyBox.Size = UDim2.fromScale(0.55, 0.40)
+keyBox.BackgroundColor3 = Color3.fromRGB(45,45,45)
+keyBox.BorderSizePixel = 0
+keyBox.Font = Enum.Font.GothamBold
+keyBox.Text = ""
+keyBox.PlaceholderText = "Enter key here.."
+keyBox.TextColor3 = Color3.new(1,1,1)
+keyBox.TextScaled = true
+keyBox.ClearTextOnFocus = false
+
+Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0, 14)
+
+-- Load Script Button
+local load = Instance.new("TextButton")
+load.Parent = main
+load.BackgroundTransparency = 0
+load.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+load.Position = UDim2.fromScale(0.05, 0.75)
+load.Size = UDim2.fromScale(0.25, 0.12)
+load.Text = "Load Script"
+load.Font = Enum.Font.GothamBold
+load.TextColor3 = Color3.new(1,1,1)
+load.TextScaled = true
+Instance.new("UICorner", load).CornerRadius = UDim.new(0, 8)
+
+-- Get Key Button
+local getKey = Instance.new("TextButton")
+getKey.Parent = main
+getKey.BackgroundTransparency = 0
+getKey.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+getKey.Position = UDim2.fromScale(0.32, 0.75)
+getKey.Size = UDim2.fromScale(0.25, 0.12)
+getKey.Text = "Get Key"
+getKey.Font = Enum.Font.GothamBold
+getKey.TextColor3 = Color3.new(1,1,1)
+getKey.TextScaled = true
+Instance.new("UICorner", getKey).CornerRadius = UDim.new(0, 8)
+
+-- Discord Button
+-- Discord Button
+local discord = Instance.new("TextButton")
+discord.Parent = main
+discord.Size = UDim2.new(0, 27, 0, 27)
+discord.Position = UDim2.new(1, -35, 1, -35)
+discord.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
+discord.BorderSizePixel = 0
+discord.Text = ""
+
+Instance.new("UICorner", discord).CornerRadius = UDim.new(0, 8)
+
+-- Discord Icon
+local discordIcon = Instance.new("ImageLabel")
+discordIcon.Parent = discord
+discordIcon.Size = UDim2.fromScale(1, 1)
+discordIcon.Position = UDim2.fromScale(0, 0)
+discordIcon.BackgroundTransparency = 1
+discordIcon.Image = "rbxassetid://72270505325325"
+discordIcon.ScaleType = Enum.ScaleType.Fit
+
+
+-- Logic
+load.MouseButton1Click:Connect(function()
+    if keyBox.Text == KEY then
+        gui:Destroy()
+        print("Flowthic Hub Loaded")
+        startScript()
+    else
+        keyBox.Text = ""
+        keyBox.PlaceholderText = "Wrong key"
+    end
+end)
+
+getKey.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/fevurJcxMF")
+end)
+
+discord.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/fevurJcxMF")
+end)
