@@ -50,14 +50,24 @@ local function startScript()
    }
 })
 local Skins = Window:CreateTab("Skins", 4483362458) -- Title, Image
+local Teleports = Window:CreateTab("Teleports", 4483362458) -- Title, Image
 
 Skins:CreateButton({
    Name = "CPT Dev Skin | [0$]",
    Callback = function()
-    game.ReplicatedStorage.eventFolders.store.changeSkin:FireServer(player, "CPT")
+   local args = {
+    "Bart",
+    "CPT"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("eventFolders"):WaitForChild("store"):WaitForChild("changeSkin"):FireServer(unpack(args))
    end,
 })
-
+Teleports:CreateButton({
+   Name = "Teleport To Obby End",
+   Callback = function()
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(-33.0938225, 207.949997, 111.343933, 0.342042685, -0, -0.939684391, 0, 1, -0, 0.939684391, 0, 0.342042685)
+   end,
+})
 end
 -- ScreenGui
 local gui = Instance.new("ScreenGui")
@@ -195,9 +205,9 @@ load.MouseButton1Click:Connect(function()
 end)
 
 getKey.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/fevurJcxMF")
+    setclipboard("https://discord.gg/jRKpchAR4d")
 end)
 
 discord.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/fevurJcxMF")
+    setclipboard("https://discord.gg/jRKpchAR4d")
 end)
