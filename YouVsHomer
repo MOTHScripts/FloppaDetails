@@ -68,6 +68,12 @@ Teleports:CreateButton({
     player.Character.HumanoidRootPart.CFrame = CFrame.new(-33.0938225, 207.949997, 111.343933, 0.342042685, -0, -0.939684391, 0, 1, -0, 0.939684391, 0, 0.342042685)
    end,
 })
+Teleports:CreateButton({
+   Name = "Teleport To Spawn",
+   Callback = function()
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(-0, 105, 22)
+   end,
+})
 end
 -- ScreenGui
 local gui = Instance.new("ScreenGui")
